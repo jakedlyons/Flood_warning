@@ -12,3 +12,7 @@ def addition(a, b):
     return a + b
 
 print(addition(5,4))
+from .utils import sorted_by_key  # noqa
+
+def test1(a,b):
+    return a*b
