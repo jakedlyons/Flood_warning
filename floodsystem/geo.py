@@ -6,4 +6,9 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
+#from .utils import sorted_by_key  # noqa
+
+def addition(a, b):
+    return a + b
+
+print(addition(5,4))
