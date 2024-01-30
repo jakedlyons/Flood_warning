@@ -17,9 +17,15 @@ def run():
 
     #print the names of the stations located on the following rivers in alphabetical order
     stations_by_river_list = stations_by_river(stations)
-    print(stations_by_river_list['River Aire'])
-    print(stations_by_river_list['River Cam'])
-    print(stations_by_river_list['River Thames'])
+    Aire = list(stations_by_river_list['River Aire'])
+    Aire.sort()
+    Cam = list(stations_by_river_list['River Cam'])
+    Cam.sort()
+    Thames = list(stations_by_river_list['River Thames'])
+    Thames.sort()
+    print(len(Aire))
+    print(len(Cam))
+    print(len(Thames))
 
 
 
