@@ -8,13 +8,13 @@ geographical data.
 from .utils import sorted_by_key  # noqag
 import haversine #Used in calculating shortest distance between two coordinates
 
-def stations_by_distance(stations, p):
+def stations_by_distance(stations, p): #Function for generating a list of tuples (Station name , distance to coordinate p)
     
     stations_by_distance = []
-    for station in stations:
+    for station in stations: #iterate through each station
 
-        d = haversine.haversine(station.coord, p)
-        stations_by_distance.append((station.name, d))
+        d = haversine.haversine(station.coord, p) #calculate shortest distance of station coord to p
+        stations_by_distance.append((station.name, d)) #adds tuple to list
 
-    return stations_by_distance
+    return sorted_by_key(stations_by_distance, 1)
     
