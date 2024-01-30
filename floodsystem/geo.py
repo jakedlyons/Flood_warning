@@ -7,3 +7,6 @@ geographical data.
 """
 
 from .utils import sorted_by_key  # noqa
+
+def test1(a,b):
+    return a*b
