@@ -5,7 +5,7 @@ from floodsystem.stationdata import build_station_list
 
 
 def run():
-    """Requirements for Task 1A"""
+    """Requirements for Task 1D"""
 
     # Build list of stations
     stations = build_station_list()
@@ -23,12 +23,12 @@ def run():
     Cam.sort()
     Thames = list(stations_by_river_list['River Thames'])
     Thames.sort()
-    print(len(Aire))
-    print(len(Cam))
-    print(len(Thames))
+    print(Aire)
+    print(Cam)
+    print(Thames)
 
 
 
 if __name__ == "__main__":
-    print("*** Task 1A: CUED Part IA Flood Warning System ***")
+    print("*** Task 1D: CUED Part IA Flood Warning System ***")
     run()
