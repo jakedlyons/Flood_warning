@@ -33,7 +33,7 @@ def stations_by_river(stations):
     return by_river
 
 def rivers_by_station_number(stations, N):
-    by_station_number = dict.fromkeys(rivers_with_station(stations),0)
+    by_station_number = {i:[] for i in rivers_with_station(stations)}
     for station in stations:
         by_station_number[station.river] += 1
     num = by_station_number
