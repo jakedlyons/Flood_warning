@@ -17,6 +17,18 @@ def stations_by_distance(stations, p): #Function for generating a list of tuples
         stations_by_distance.append((station.name, d)) #adds tuple to list
 
     return sorted_by_key(stations_by_distance, 1)
+
+def stations_within_radius(stations, centre, r):
+
+    stations_within_radius = []
+    for station in stations: #iterate though each station
+
+        d = haversine.haversine(station.coord, centre) #calculate shortest distance of station coord to centre
+        if d <= r :
+            stations_within_radius.append(station.name)
+        else:
+            pass
+    return stations_within_radius
     
 def rivers_with_station(stations): #Task1D1 returns a container (list/tuple/set) with the names of the rivers with a monitoring station
     rivers = set()
