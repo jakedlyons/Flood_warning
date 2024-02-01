@@ -30,6 +30,14 @@ class MonitoringStation:
 
         self.latest_level = None
 
+    def typical_range_consistent(self):
+        if self.typical_range == None: # if data is missing
+            return False
+        elif self.typical_range[1] < self.typical_range[0]: #typical high is less than typical low
+            return False
+        else: #consistent, consider case typical_high = typical_low as consistent
+            return True
+
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
         d += "   id:            {}\n".format(self.station_id)
@@ -39,3 +47,12 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+def inconsistent_typical_range_stations(stations):
+    inconsistent_typical_range_stations = []
+    for station in stations:
+        if MonitoringStation.typical_range_consistent(station) is False:
+            inconsistent_typical_range_stations.append(station.name)
+        else:
+            pass
+    return inconsistent_typical_range_stations
