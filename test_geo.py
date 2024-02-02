@@ -6,18 +6,17 @@ import haversine
 from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation
 
+#Create a test station
+s_id = "test-s-id"
+m_id = "test-m-id"
+label = "some station"
+coord = (-2.0, 4.0)
+trange = None
+river = "River X"
+town = "My Town"
+s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
 
 def test_stations_by_distance(): #Test for function for generating a list of tuples (Station name , distance to coordinate p)
-    
-    # Create a station
-    s_id = "test-s-id"
-    m_id = "test-m-id"
-    label = "some station"
-    coord = (-2.0, 4.0)
-    trange = (-2.3, 3.4445)
-    river = "River X"
-    town = "My Town"
-    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
 
     stations = [s]
     d_function = stations_by_distance(stations, p = [0., 0.]) #Find distance between our defined station and p through function
@@ -30,5 +29,14 @@ from floodsystem.stationdata import build_station_list
 
 def test_stations_within_radius():
 
-    stations = build_station_list()
-    assert len(stations_within_radius(stations, centre = (51.874767, -1.740083) , r = 1)) > 0 #Test output list has +ve length on known Bourton Dickler location
+    stations = [s]
+    assert len(stations_within_radius(stations, centre = (-2., 4.) , r = 0.01)) == 1 #Test output list has length one with centre equal to stations s coordinate.
+
+from floodsystem.station import inconsistent_typical_range_stations
+
+def test_inconsistent_typical_range_stations() :
+
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    stations = [s]
+
+    assert len(inconsistent_typical_range_stations(stations)) == 1 #Check function outputs a list of length one as station is inconsistent
