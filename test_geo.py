@@ -1,12 +1,11 @@
-import floodsystem.geo
-
+import math
+import haversine
 
 """Unit tests for the geo module"""
 
 from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation
-import math
-import haversine
+
 
 def test_stations_by_distance(): #Test for function for generating a list of tuples (Station name , distance to coordinate p)
     
@@ -23,5 +22,13 @@ def test_stations_by_distance(): #Test for function for generating a list of tup
     stations = [s]
     d_function = stations_by_distance(stations, p = [0., 0.]) #Find distance between our defined station and p through function
     d_direct = haversine.haversine((-2., 4.), (0., 0.)) #Directly find distance between the two coords
-    
-    assert round(d_function[0][1], 8) == round(d_direct, 8) 
+
+    assert round(d_function[0][1], 8) == round(d_direct, 8)
+
+from floodsystem.geo import stations_within_radius
+from floodsystem.stationdata import build_station_list
+
+def test_stations_within_radius():
+
+    stations = build_station_list()
+    assert len(stations_within_radius(stations, centre = (51.874767, -1.740083) , r = 1)) > 0 #Test output list has +ve length on known Bourton Dickler location
