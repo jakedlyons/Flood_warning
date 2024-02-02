@@ -7,5 +7,5 @@ def run():
     print(sorted(inconsistent_typical_range_stations(stations))) # Print alphabetically sorted inconsistent list
 
 if __name__ == "__main__":
-    print("*** Task 1F: CUED Part IA Flood Warning System ***")
+    print("*** Task 1F: CUED Part IA Flood Warning System ***\n")
     run()
