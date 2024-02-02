@@ -11,4 +11,5 @@ def run():
     print('The furthest 10 stations to city centre are :', ordered_stations[-10:])
 
 if __name__ == "__main__":
+    print("*** Task 1B: CUED Part IA Flood Warning System ***")
     run()
