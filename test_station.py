@@ -5,18 +5,17 @@
 
 from floodsystem.station import MonitoringStation
 
+#Create a test station
+s_id = "test-s-id"
+m_id = "test-m-id"
+label = "some station"
+coord = (-2.0, 4.0)
+trange = None
+river = "River X"
+town = "My Town"
+s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
 
 def test_create_monitoring_station():
-
-    # Create a station
-    s_id = "test-s-id"
-    m_id = "test-m-id"
-    label = "some station"
-    coord = (-2.0, 4.0)
-    trange = (-2.3, 3.4445)
-    river = "River X"
-    town = "My Town"
-    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
 
     assert s.station_id == s_id
     assert s.measure_id == m_id
@@ -25,3 +24,12 @@ def test_create_monitoring_station():
     assert s.typical_range == trange
     assert s.river == river
     assert s.town == town
+
+from floodsystem.station import inconsistent_typical_range_stations
+
+def test_inconsistent_typical_range_stations() :
+
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    stations = [s]
+
+    assert len(inconsistent_typical_range_stations(stations)) == 1 #Check function outputs a list of length one as station is inconsistent

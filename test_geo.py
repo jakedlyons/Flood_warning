@@ -32,11 +32,4 @@ def test_stations_within_radius():
     stations = [s]
     assert len(stations_within_radius(stations, centre = (-2., 4.) , r = 0.01)) == 1 #Test output list has length one with centre equal to stations s coordinate.
 
-from floodsystem.station import inconsistent_typical_range_stations
 
-def test_inconsistent_typical_range_stations() :
-
-    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
-    stations = [s]
-
-    assert len(inconsistent_typical_range_stations(stations)) == 1 #Check function outputs a list of length one as station is inconsistent
