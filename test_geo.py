@@ -32,4 +32,8 @@ def test_stations_within_radius():
     stations = [s]
     assert len(stations_within_radius(stations, centre = (-2., 4.) , r = 0.01)) == 1 #Test output list has length one with centre equal to stations s coordinate.
 
+from floodsystem.geo import rivers_with_station
 
+def test_rivers_with_station():
+    stations = [s]
+    assert rivers_with_station(stations) == ["River X"]
