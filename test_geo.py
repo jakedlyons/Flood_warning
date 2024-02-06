@@ -1,5 +1,5 @@
 import math
-from haversine import haversine
+import haversine
 
 """Unit tests for the geo module"""
 
