@@ -52,8 +52,12 @@ def rivers_by_station_number(stations, N):  #Task1E return a list of (river name
     for river in by_station_number.keys():
         river_list.append((river, by_station_number[river]))
     river_list.sort(key=lambda x:x[1], reverse=True)
-    selected = river_list[0:N-1]
-    extra_count = 0
-    while river_list[N + extra_count][1] == river_list[N-1][0]:
-        selected.append(river_list[N + extra_count])
+    if len(river_list) > N:
+        selected = river_list[0:N-1]
+        extra_count = 0
+        while river_list[N + extra_count][1] == river_list[N-1][0]:
+            selected.append(river_list[N + extra_count])
+            extra_count += 1
+    else:
+        selected = river_list
     return selected

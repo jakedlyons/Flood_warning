@@ -44,11 +44,11 @@ from floodsystem.geo import stations_by_river
 def test_stations_by_river():
     stations = [s]
 
-    assert stations_by_river(stations) == {"River X":["test-s-id"]} #Test output dictionary has correct element and structure
+    assert stations_by_river(stations) == {"River X":["some station"]} #Test output dictionary has correct element and structure
 
 from floodsystem.geo import rivers_by_station_number
 
 def test_rivers_by_station_number():
     stations = [s]
 
-    assert rivers_by_station_number(stations,1) == {"River X":1} #Test output dictionary has correct element and structure
+    assert rivers_by_station_number(stations,1) == [("River X",1)] #Test output dictionary has correct element and structure
