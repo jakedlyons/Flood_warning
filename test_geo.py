@@ -37,3 +37,9 @@ from floodsystem.geo import rivers_with_station
 def test_rivers_with_station():
     stations = [s]
     assert rivers_with_station(stations) == ["River X"]
+
+from floodsystem.geo import stations_by_river
+
+def test_stations_by_river():
+    stations = [s]
+    assert stations_by_river(stations) == {"River X":["test-s-id"]}
