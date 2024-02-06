@@ -38,13 +38,13 @@ def rivers_with_station(stations): #Task1D1 returns a container (list/tuple/set)
     rivers = list(rivers)
     return rivers
 
-def stations_by_river(stations): #Task1D maps river names (the ‘key’) to a list of station objects on a given river
+def stations_by_river(stations): #Task1D2 maps river names (the ‘key’) to a list of station objects on a given river
     by_river = {i:[] for i in rivers_with_station(stations)}
     for station in stations:
         by_river[station.river].append(station.name)
     return by_river
 
-def rivers_by_station_number(stations, N):  #return a list of (river name, number of stations) tuples, sorted by the number of stations
+def rivers_by_station_number(stations, N):  #Task1E return a list of (river name, number of stations) tuples, sorted by the number of stations
     by_station_number = {i:0 for i in rivers_with_station(stations)}
     for station in stations:
         by_station_number[station.river] += 1
