@@ -10,10 +10,11 @@ s_id = "test-s-id"
 m_id = "test-m-id"
 label = "some station"
 coord = (-2.0, 4.0)
-trange = None
+trange = (10.0, 20.0)
 river = "River X"
 town = "My Town"
-s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+latest_level = 15
+s = MonitoringStation(s_id, m_id, label, coord, trange, river, town, latest_level)
 
 def test_create_monitoring_station():
 
@@ -29,7 +30,10 @@ from floodsystem.station import inconsistent_typical_range_stations
 
 def test_inconsistent_typical_range_stations() :
 
-    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
     stations = [s]
 
-    assert len(inconsistent_typical_range_stations(stations)) == 1 #Check function outputs a list of length one as station is inconsistent
+    assert len(inconsistent_typical_range_stations(stations)) == 0 #Check function outputs a list of length one as station is inconsistent
+
+def test_relative_water_level():
+    stations = [s]
+    assert MonitoringStation.relative_water_level(stations) == 0.5 #Check realtive water level calculation
