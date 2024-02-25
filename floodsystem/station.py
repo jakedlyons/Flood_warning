@@ -10,7 +10,7 @@ for manipulating/modifying station data
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
-    def __init__(self, station_id, measure_id, label, coord, typical_range,
+    def __init__(self, station_id, measure_id, label, coord, typical_range, latest_level,
                  river, town):
         """Create a monitoring station."""
 
@@ -28,7 +28,7 @@ class MonitoringStation:
         self.river = river
         self.town = town
 
-        self.latest_level = None
+        self.latest_level = latest_level
 
     def typical_range_consistent(self):
         if self.typical_range == None: # if data is missing
@@ -38,6 +38,13 @@ class MonitoringStation:
         else: #consistent, consider case typical_high = typical_low as consistent
             return True
 
+    def relative_water_level(self): #returns the latest water level as a fraction of the typical range
+        if self.typical_range_consistent == False: #if unavailable or inconsistent
+            return None
+        else: 
+            ratio = (self.latest_level - self.typical_range[0])/(self.typical_range[1])
+            return ratio
+    
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
         d += "   id:            {}\n".format(self.station_id)
