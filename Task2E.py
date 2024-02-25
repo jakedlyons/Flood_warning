@@ -15,7 +15,7 @@ def run():
     update_water_levels(stations)
 
     #Make list of the 5 stations with the highest relative level
-    highest_stations = stations_highest_rel_level(stations, 5):
+    highest_stations = stations_highest_rel_level(stations, 5)
     
     dt = 10 #Number of days from now to be plotted
     for station in highest_stations:
