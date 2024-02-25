@@ -60,7 +60,7 @@ class MonitoringStation:
 def inconsistent_typical_range_stations(stations):
     inconsistent_typical_range_stations = []
     for station in stations:
-        if MonitoringStation.typical_range_consistent(station) == False:
+        if MonitoringStation.typical_range_consistent(station) is False:
             inconsistent_typical_range_stations.append(station.name)
         else:
             pass
