@@ -5,7 +5,6 @@ from floodsystem.datafetcher import fetch_measure_levels
 import datetime
 from floodsystem.flood import stations_highest_rel_level
 from floodsystem.stationdata import update_water_levels
-from floodsystem.station import MonitoringStation
 
 
 def run():
@@ -19,7 +18,6 @@ def run():
     highest_stations = []
     for station in stations_highest_rel_level(stations, 5):
         highest_stations.append(station[0])
-    print(highest_stations)
     
     dt = 10 #Number of days from now to be plotted
     for station in highest_stations:
