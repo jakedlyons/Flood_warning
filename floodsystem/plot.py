@@ -13,7 +13,7 @@ def plot_water_levels(station, dates, levels):
 
     #Plot horizontal lines for the typical low & high levels
     y_values = [station.typical_range[0], station.typical_range[1]]
-    plt.hlines(y_values, xmin = dates[0], xmax = dates[-1], colors='r', linestyles='dashed', label='Typical High/Low Water Level')
+    plt.hlines(y_values, xmin = dates[1], xmax = dates[-1], colors='r', linestyles='dashed', label='Typical High/Low Water Level')
 
     # Add axis labels, rotate date labels and add plot title
     plt.xlabel('date')
@@ -25,3 +25,6 @@ def plot_water_levels(station, dates, levels):
     plt.tight_layout()  # This makes sure plot does not cut off date labels
     plt.legend() #Adds the low/high label
     plt.show()
+
+def plot_water_level_with_fit(station, dates, levels, p):
+    print()

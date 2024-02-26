@@ -11,7 +11,7 @@ def run():
     #prints the names of the 10 stations at which the current relative level is highest, with the relative level beside each station name
     highest = stations_highest_rel_level(stations, 10)
     for station in highest:
-        print('{}, {}'.format(station[0], station[1]))
+        print('{}, {}'.format(station[0].name, station[1]))
 
 if __name__ == "__main__":
     print("*** Task 2C: CUED Part IA Flood Warning System ***")

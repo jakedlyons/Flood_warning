@@ -20,7 +20,7 @@ def stations_highest_rel_level(stations, N): #returns a list of the N stations (
     for station in stations:
         if MonitoringStation.typical_range_consistent(station) == True:
             if MonitoringStation.relative_water_level(station) != None:
-                    stations_rel.append((station.name, MonitoringStation.relative_water_level(station)))
+                    stations_rel.append((station, MonitoringStation.relative_water_level(station)))
     stations_rel = sorted_by_key(stations_rel,1,True)
     if N < len(stations_rel):
         stations_highest = stations_rel[:N-1]
