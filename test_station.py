@@ -35,5 +35,5 @@ def test_inconsistent_typical_range_stations() :
     assert len(inconsistent_typical_range_stations(stations)) == 0 #Check function outputs a list of length one as station is inconsistent
 
 def test_relative_water_level():
-    stations = [s]
+    stations = s
     assert MonitoringStation.relative_water_level(stations) == 0.5 #Check realtive water level calculation
