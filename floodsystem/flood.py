@@ -23,7 +23,7 @@ def stations_highest_rel_level(stations, N): #returns a list of the N stations (
                     stations_rel.append((station, MonitoringStation.relative_water_level(station)))
     stations_rel = sorted_by_key(stations_rel,1,True)
     if N < len(stations_rel):
-        stations_highest = stations_rel[:N-1]
+        stations_highest = stations_rel[:N]
     else:
         stations_highest = stations_rel
     return stations_highest
