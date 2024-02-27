@@ -15,7 +15,7 @@ def run():
 
     #Make list of the 5 stations with the highest relative level
     highest_stations = []
-    for station in stations_highest_rel_level(stations, 5):
+    for station in stations_highest_rel_level(stations, 6):
         highest_stations.append(station[0])
     
     dt = 2 #Number of days from now to be plotted
