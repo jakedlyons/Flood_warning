@@ -10,10 +10,10 @@ def run():
     update_water_levels(stations)
 
     #build lists of stations of different level. 
-    #Stations with relative water level over 1.0 is considered severe. 
-    #Stations with relative water level between 0.8 and 1.0 is considered high. 
-    #Stations with relative water level between 0.6 and 0.8 is considered moderate. 
-    #Stations with relative water level under 0.6 is considered low.
+    #Stations with relative water level over 1.5 is considered severe. 
+    #Stations with relative water level between 1.0 and 1.5 is considered high. 
+    #Stations with relative water level between 0.8 and 1.0 is considered moderate. 
+    #Stations with relative water level under 0.8 is considered low.
     severe = [i[0] for i in stations_level_over_threshold(stations,1.5)]
     high = [i[0] for i in stations_level_over_threshold(stations,1.0)]
     moderate = [i[0] for i in stations_level_over_threshold(stations,0.8)]
@@ -49,8 +49,8 @@ def run():
         print(i + ' is at high risk.')
     for i in moderate_town:
         print(i + ' is at moderate risk.')
-    for i in low_town:
-        print(i + ' is at low risk.')
+    #for i in low_town:
+        #print(i + ' is at low risk.')
 
 
 if __name__ == "__main__":
